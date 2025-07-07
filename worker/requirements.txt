@@ -1,3 +1,4 @@
+# === Core Libraries ===
 PyMuPDF==1.26.3
 requests==2.32.4
 spacy==3.7.5
@@ -8,3 +9,4 @@ tqdm==4.67.1
 scikit-learn==1.7.0
 pandas==2.3.0
 jsonlines==4.0.0
+

@@ -23,18 +23,18 @@ logs:
 
 # Worker setup
 install-worker:
-	docker compose exec worker pip install -r requirements.txt
+	docker compose run worker pip install -r requirements.txt
 
 jekyll:
-	cd docs && bundle exec jekyll serve
+	cd docs && bundle exec jekyll serve -l
 
 # Pipeline
 pipeline:
 	@echo "Running full pipeline on $(PDF)"
-	docker compose exec worker python extract_text.py $(PDF)
-	docker compose exec worker python ner_pipeline.py $(BASENAME).txt
-	docker compose exec worker python graph_upload.py $(BASENAME).entities.json
-	docker compose exec worker python export_doccano.py $(BASENAME).entities.json
+	docker compose run worker python extract_text.py $(PDF)
+	docker compose run worker python ner_pipeline.py $(BASENAME).txt
+	docker compose run worker python graph_upload.py $(BASENAME).entities.json
+	docker compose run worker python export_doccano.py $(BASENAME).entities.json
 
 # Doccano and Neo4j
 open-doccano:

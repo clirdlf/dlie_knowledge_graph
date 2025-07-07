@@ -18,6 +18,16 @@
       "type": "shell",
       "command": "docker compose build worker",
       "group": "build"
+    },
+    {
+      "label": "Run Blog Locally (Jekyll)",
+      "type": "shell",
+      "command": "make jekyll",
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
     }
   ]
 }
