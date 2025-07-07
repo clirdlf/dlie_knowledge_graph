@@ -33,6 +33,7 @@ services:
 
   worker:
     build: ./worker
+    platform: linux/amd64
     container_name: worker
     volumes:
       - ./data:/data
