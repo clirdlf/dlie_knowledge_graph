@@ -1,7 +1,7 @@
 # === Core Libraries ===
 PyMuPDF==1.26.3
 requests==2.32.4
-spacy==3.7.5
+spacy==3.6.1
 taxonerd
 py2neo==2021.2.4
 neo4j==5.28.1
@@ -9,4 +9,24 @@ tqdm==4.67.1
 scikit-learn==1.7.0
 pandas==2.3.0
 jsonlines==4.0.0
+python-dotenv
 
+# === spaCy Language Models (SM versions, for spaCy 3.6.1)
+
+# English (small)
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.6.0/en_core_web_sm-3.6.0-py3-none-any.whl
+
+# French
+https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.6.0/fr_core_news_sm-3.6.0-py3-none-any.whl
+
+# Spanish
+https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.6.0/es_core_news_sm-3.6.0-py3-none-any.whl
+
+# Russian
+https://github.com/explosion/spacy-models/releases/download/ru_core_news_sm-3.6.0/ru_core_news_sm-3.6.0-py3-none-any.whl
+
+# Chinese (simplified, non-transformer)
+https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.6.0/zh_core_web_sm-3.6.0-py3-none-any.whl
+
+# Multilingual fallback
+https://github.com/explosion/spacy-models/releases/download/xx_ent_wiki_sm-3.6.0/xx_ent_wiki_sm-3.6.0-py3-none-any.whl

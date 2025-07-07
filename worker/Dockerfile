@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
     git \
     python3-dev \
     curl \
+    git-lfs \
+    && git lfs install \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
