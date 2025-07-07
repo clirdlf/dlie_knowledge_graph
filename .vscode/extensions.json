@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-azuretools.vscode-docker",
+    "esbenp.prettier-vscode",
+    "donjayamanne.python-environment-manager",
+    "ms-toolsai.jupyter"
+  ]
+}

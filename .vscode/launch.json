@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run extract_text.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/worker/extract_text.py",
+      "args": ["sample.pdf"],
+      "justMyCode": true
+    }
+  ]
+}
