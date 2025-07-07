@@ -1,0 +1,43 @@
+services:
+  grobid:
+    image: lfoppiano/grobid:0.7.2
+    container_name: grobid
+    ports:
+      - "8070:8070"
+    volumes:
+      - ./data/grobid:/opt/grobid
+
+  neo4j:
+    image: neo4j:5.17
+    container_name: neo4j
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    ports:
+      - "7474:7474"  # Web UI
+      - "7687:7687"  # Bolt protocol
+    volumes:
+      - ./data/neo4j/data:/data
+      - ./data/neo4j/logs:/logs
+      - ./data/neo4j/plugins:/plugins
+
+  doccano:
+    image: doccano/doccano
+    container_name: doccano
+    ports:
+      - "8000:8000"
+    environment:
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=admin
+    volumes:
+      - ./data/doccano:/data
+
+  worker:
+    build: ./worker
+    container_name: worker
+    volumes:
+      - ./data:/data
+    env_file:
+      - .env
+    depends_on:
+      - grobid
+      - neo4j

@@ -1,0 +1,10 @@
+pymupdf
+requests
+spacy
+taxonerd
+py2neo
+neo4j
+tqdm
+scikit-learn
+pandas
+jsonlines

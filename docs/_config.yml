@@ -1,0 +1,10 @@
+title: Digital Library of Integral Ecology
+description: A tutorial series on building a knowledge graph for ecology
+theme: minima
+markdown: kramdown
+baseurl: "" # Leave blank unless using a custom subpath
+
+minima:
+  social_links:
+    github: your-username
+    linkedin: your-handle
