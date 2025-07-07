@@ -9,6 +9,7 @@ NEO4J_PASSWORD = "password"
 
 OUTPUT_DIR = Path("/data/output")
 
+
 def upload_to_neo4j(filename):
     input_path = OUTPUT_DIR / filename
     if not input_path.exists():
@@ -26,19 +27,17 @@ def upload_to_neo4j(filename):
 
     with driver.session() as session:
         # Create the document node
-        session.write_transaction(create_document_node, doc_name)
+        session.execute_write(create_document_node, doc_name)
 
         # Create entity nodes and relationships
         for ent in entities:
-            session.write_transaction(
-                link_entity_to_document,
-                doc_name,
-                ent["text"],
-                ent["label"]
+            session.execute_write(
+                link_entity_to_document, doc_name, ent["text"], ent["label"]
             )
 
     driver.close()
     print(f"[✓] Uploaded to Neo4j: {doc_name}")
+
 
 def create_document_node(tx, doc_name):
     query = """
@@ -46,6 +45,7 @@ def create_document_node(tx, doc_name):
     RETURN d
     """
     tx.run(query, name=doc_name)
+
 
 def link_entity_to_document(tx, doc_name, entity_text, label):
     query = """
@@ -57,6 +57,7 @@ def link_entity_to_document(tx, doc_name, entity_text, label):
     MERGE (d)-[:MENTIONS]->(e)
     """
     tx.run(query, text=entity_text, label=label, doc_name=doc_name)
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

@@ -15,31 +15,31 @@ Whether you're a researcher, librarian, activist, or simply curious, these guide
 
 Here’s what we’ll explore together:
 
-1. **[What Is a Knowledge Graph for Integral Ecology?](./posts/01_intro.html)**  
+1. **[What Is a Knowledge Graph for Integral Ecology?](./posts/01_intro/)**  
    Introduction to what we’re building and why it matters.
 
-2. **[Building Blocks: Documents, Entities, and Relationships](./posts/02_building_blocks.html)s**  
+2. **[Building Blocks: Documents, Entities, and Relationships](./posts/02_building_blocks/)s**  
    How reports are transformed into structured, searchable networks of knowledge.
 
-3. **[From PDF to Text: Extracting Meaning from Documents](./posts/03_pdf_to_text.html)**  
+3. **[From PDF to Text: Extracting Meaning from Documents](./posts/03_pdf_to_text/)**  
    Learn how we pull clean, useful text from messy PDFs and scientific citations.
 
-4. **[Tagging the World: Finding Places, Plants, and Ideas with AI](./posts/04_entity_tagging.html)**  
+4. **[Tagging the World: Finding Places, Plants, and Ideas with AI](./posts/04_entity_tagging/)**  
    How NLP tools identify ecological concepts, organizations, and more.
 
-5. **[Stitching the Graph: Saving Knowledge to Neo4j](./posts/05_graph_database.html)**  
+5. **[Stitching the Graph: Saving Knowledge to Neo4j](./posts/05_graph_database/)**  
    How our documents and entities are stored and visualized as a graph.
 
-6. **[Annotation: Teaching the System to Be Smarter](./posts/06_annotation.html)**  
+6. **[Annotation: Teaching the System to Be Smarter](./posts/06_annotation/)**  
    A look at Doccano and how humans refine machine learning.
 
-7. **[Training Our Own Ecological Language Model](./posts/07_training_model.html)**  
+7. **[Training Our Own Ecological Language Model](./posts/07_training_model/)**  
    Turning annotations into a smarter, ecology-specific NER system.
 
-8. **[Evaluating the Results: Accuracy, Speed, and Insight](./posts/08_evaluation.html)**  
+8. **[Evaluating the Results: Accuracy, Speed, and Insight](./posts/08_evaluation/)**  
    Measuring how well our models work, and what they help us uncover.
 
-9. **[Contribute: Join the Digital Library of Integral Ecology](./posts/09_contribute.html)**  
+9. **[Contribute: Join the Digital Library of Integral Ecology](./posts/09_contribute/)**  
    How you can help build and grow this open knowledge commons.
 
 ---
