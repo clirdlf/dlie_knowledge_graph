@@ -18,37 +18,54 @@ Here’s what we’ll explore together:
 1. **[What Is a Knowledge Graph for Integral Ecology?](./posts/01_intro.html)**  
    Introduction to what we’re building and why it matters.
 
-2. **Building Blocks: Documents, Entities, and Relationships**  
+2. **BBuilding Blocks: Documents, Entities, and Relationships](./posts/02_building_blocks.html)s**  
    How reports are transformed into structured, searchable networks of knowledge.
 
-3. **From PDF to Text: Extracting Meaning from Documents**  
+3. **[From PDF to Text: Extracting Meaning from Documents](./posts/03_pdf_to_text.html)**  
    Learn how we pull clean, useful text from messy PDFs and scientific citations.
 
-4. **Tagging the World: Finding Places, Plants, and Ideas with AI**  
+4. **[Tagging the World: Finding Places, Plants, and Ideas with AI](./posts/04_entity_tagging.html)**  
    How NLP tools identify ecological concepts, organizations, and more.
 
-5. **Stitching the Graph: Saving Knowledge to Neo4j**  
+5. **[Stitching the Graph: Saving Knowledge to Neo4j](./posts/05_graph_database.html)**  
    How our documents and entities are stored and visualized as a graph.
 
-6. **Annotation: Teaching the System to Be Smarter**  
+6. **[Annotation: Teaching the System to Be Smarter](./posts/06_annotation.html)**  
    A look at Doccano and how humans refine machine learning.
 
-7. **Training Our Own Ecological Language Model**  
+7. **[Training Our Own Ecological Language Model](./posts/07_training_model.html)**  
    Turning annotations into a smarter, ecology-specific NER system.
 
-8. **Evaluating the Results: Accuracy, Speed, and Insight**  
+8. **[Evaluating the Results: Accuracy, Speed, and Insight](./posts/08_evaluation.html)**  
    Measuring how well our models work, and what they help us uncover.
 
-9. **Contribute: Join the Digital Library of Integral Ecology**  
+9. **[Contribute: Join the Digital Library of Integral Ecology](./posts/09_contribute.html)**  
    How you can help build and grow this open knowledge commons.
 
 ---
 
 ## Get Started
 
-Start with the [Introduction »](./posts/01_intro.html)
+All code is open-source and Dockerized:
 
-Or explore the code on [GitHub](https://github.com/clirdlf/dlie_knowledge_graph).
+```bash
+git clone https://github.com/clirdlf/dlie_knowledge_graph.git
+cd dlie_knowledge_graph
+make build
+make pipeline PDF=your_report.pdf
+```
+
+You’ll extract entities, visualize the graph, and export data for annotation — in just a few steps.
+
+---
+## 🤝 Get Involved
+
+* 📚 Contribute reports or documents
+* 🧑‍🔬 Help annotate and improve the language models
+* 🌐 Add support for your language or region
+* 💻 Improve the pipeline or add visualizations
+
+See the [GitHub]() repository for details.
 
 ---
  
