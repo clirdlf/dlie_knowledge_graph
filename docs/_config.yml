@@ -4,7 +4,21 @@ theme: minima
 markdown: kramdown
 baseurl: "/dlie_knowledge_graph" # Leave blank unless using a custom subpath
 
+permalink: pretty
+
+name: Wayne Graham
+email: wayne.graham@gmail.com
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+header_pages:
+  - posts
+
 minima:
+  skin: auto
+
   social_links:
     github: your-username
     linkedin: your-handle

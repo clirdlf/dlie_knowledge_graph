@@ -1,5 +1,5 @@
 ---
-title: Digital Library of Integral Ecology Knowledge Graph
+title: ""
 layout: home
 ---
 
@@ -18,7 +18,7 @@ Here’s what we’ll explore together:
 1. **[What Is a Knowledge Graph for Integral Ecology?](./posts/01_intro.html)**  
    Introduction to what we’re building and why it matters.
 
-2. **BBuilding Blocks: Documents, Entities, and Relationships](./posts/02_building_blocks.html)s**  
+2. **[Building Blocks: Documents, Entities, and Relationships](./posts/02_building_blocks.html)s**  
    How reports are transformed into structured, searchable networks of knowledge.
 
 3. **[From PDF to Text: Extracting Meaning from Documents](./posts/03_pdf_to_text.html)**  

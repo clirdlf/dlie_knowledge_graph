@@ -5,21 +5,13 @@ from pathlib import Path
 from dotenv import load_dotenv
 import spacy
 
-# Optional: TaxoNERD if language is English
-try:
-    from taxonerd import TaxoNERD
-
-    TAXONERD_AVAILABLE = True
-except ImportError:
-    TAXONERD_AVAILABLE = False
-
 load_dotenv()
 
-# Paths
+# --- Paths from .env or defaults ---
 INPUT_DIR = Path(os.getenv("INPUT_DIR", "/data/input"))
 OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", "/data/output"))
 
-# Language-to-model map
+# --- Map language codes to spaCy small models ---
 SPACY_MODELS = {
     "en": "en_core_web_sm",
     "fr": "fr_core_news_sm",
@@ -30,41 +22,35 @@ SPACY_MODELS = {
 }
 
 
-# --- Language detection stub (replace with langdetect if needed) ---
-def detect_language(filename):
-    # Placeholder: you can implement a proper detector if needed
-    if "fr" in filename:
-        return "fr"
-    elif "es" in filename:
-        return "es"
-    elif "ru" in filename:
-        return "ru"
-    elif "zh" in filename:
-        return "zh"
-    elif "ar" in filename:
-        return "xx"
-    else:
-        return "en"
+# --- Simple language guesser by filename ---
+def detect_language(filename: str) -> str:
+    fname = filename.lower()
+    for lang in SPACY_MODELS:
+        if lang in fname:
+            return lang
+    return "en"  # default
 
 
-# --- Load spaCy model based on language ---
-def load_spacy_model(lang):
-    model = SPACY_MODELS.get(lang, "xx_ent_wiki_sm")
+# --- Load appropriate spaCy model ---
+def load_spacy_model(lang: str) -> spacy.language.Language:
+    model_name = SPACY_MODELS.get(lang, "xx_ent_wiki_sm")
     try:
-        return spacy.load(model)
+        return spacy.load(model_name)
     except OSError:
-        print(f"[ERROR] spaCy model '{model}' not found. Ensure it's installed.")
-        sys.exit(1)
+        print(
+            f"[WARN] Could not load spaCy model '{model_name}', falling back to multilingual."
+        )
+        return spacy.load("xx_ent_wiki_sm")
 
 
-# --- Run spaCy and (optional) TaxoNERD ---
-def tag_entities(text, lang):
+# --- Extract entities using spaCy + eco_biobert if English ---
+def tag_entities(text: str, lang: str) -> list:
     entities = []
 
-    # spaCy
-    nlp = load_spacy_model(lang)
-    doc = nlp(text)
-    for ent in doc.ents:
+    # 1. Base spaCy model
+    base_nlp = load_spacy_model(lang)
+    base_doc = base_nlp(text)
+    for ent in base_doc.ents:
         entities.append(
             {
                 "start": ent.start_char,
@@ -74,33 +60,45 @@ def tag_entities(text, lang):
             }
         )
 
-    # TaxoNERD (English only)
-    if lang == "en" and TAXONERD_AVAILABLE:
+    # 2. en_ner_eco_biobert for English
+    if lang == "en":
         try:
-            taxo = TaxoNERD(model="en_ner_eco_biobert")
-            taxo_doc = taxo.predict(text)
-            for ent in taxo_doc["entities"]:
-                entities.append(ent)
+            eco_nlp = spacy.load("en_ner_eco_biobert")
+            eco_doc = eco_nlp(text)
+            for ent in eco_doc.ents:
+                entities.append(
+                    {
+                        "start": ent.start_char,
+                        "end": ent.end_char,
+                        "label": ent.label_,
+                        "text": ent.text,
+                    }
+                )
         except Exception as e:
-            print(f"[WARN] TaxoNERD failed: {e}")
+            print(f"[WARN] Failed to load en_ner_eco_biobert: {e}")
 
     return entities
 
 
-# --- Main ---
+# --- Main process ---
 def main(txt_file):
     input_path = INPUT_DIR / txt_file
     if not input_path.exists():
         print(f"[ERROR] File not found: {input_path}")
         sys.exit(1)
 
-    text = input_path.read_text(encoding="utf-8")
+    try:
+        text = input_path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as e:
+        print(f"[ERROR] Could not decode {txt_file}: {e}")
+        sys.exit(1)
+
     lang = detect_language(txt_file)
     print(f"[INFO] Detected language: {lang}")
 
     entities = tag_entities(text, lang)
 
-    output = {
+    output_data = {
         "filename": txt_file,
         "language": lang,
         "text": text,
@@ -108,15 +106,18 @@ def main(txt_file):
     }
 
     output_path = OUTPUT_DIR / f"{input_path.stem}.entities.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+        json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"[✓] Entities saved to: {output_path}")
+    print(f"[✓] Saved tagged entities to: {output_path}")
 
 
+# --- Entry point ---
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python ner_pipeline.py file.txt")
+        print("Usage: python ner_pipeline.py <input.txt>")
         sys.exit(1)
 
     main(sys.argv[1])
