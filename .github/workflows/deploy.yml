@@ -17,13 +17,13 @@ jobs:
       # Set up Ruby (for Jekyll + plugins)
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1
+          ruby-version: 3.4.4
           bundler-cache: true
 
       # Set up Node (for Tailwind + PostCSS)
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
         #   cache: 'npm'
 
       # Install dependencies
@@ -38,6 +38,9 @@ jobs:
         working-directory: ./docs
         run: |
           JEKYLL_ENV=production bundle exec jekyll build
+
+      - name: Log built CSS file
+        run: cat ./docs/_site/assets/css/main.css | head -n 40
 
       # Deploy to GitHub Pages
       - name: Deploy
