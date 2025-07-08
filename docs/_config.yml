@@ -18,6 +18,9 @@ permalink: pretty
 name: Wayne Graham
 email: wayne.graham@gmail.com
 
+postcss:
+  cache: false
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -27,3 +30,5 @@ exclude:
   - package.json
   - postcss.config.js
   - tailwind.config.js
+  - yarn.log
+  - .jekyll-cache
