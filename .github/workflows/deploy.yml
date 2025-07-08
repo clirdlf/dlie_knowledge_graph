@@ -51,6 +51,9 @@ jobs:
         run: |
             grep -m 1 "\.text-" ./docs/_site/assets/css/main.css || echo "No Tailwind classes found"
 
+      - name: List deployed files
+        run: find ./docs/_site -type f
+
       # Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
