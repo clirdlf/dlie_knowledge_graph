@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" /><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Digital Library of Integral Ecology | A tutorial series on building a knowledge graph for ecology</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Digital Library of Integral Ecology" />
@@ -18,131 +22,341 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","description":"A tutorial series on building a knowledge graph for ecology","headline":"Digital Library of Integral Ecology","name":"Digital Library of Integral Ecology","url":"http://localhost:4000/dlie_knowledge_graph/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/dlie_knowledge_graph/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/dlie_knowledge_graph/feed.xml" title="Digital Library of Integral Ecology" /></head>
-<body><header class="site-header" role="banner">
+<link id="main-stylesheet" rel="stylesheet" href="/dlie_knowledge_graph/assets/css/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/dlie_knowledge_graph/feed.xml" title="Digital Library of Integral Ecology" /><script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/dlie_knowledge_graph/">Digital Library of Integral Ecology</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+<body class="bg-white dark:bg-[#151e1b] text-[#131615] dark:text-[#f1f3f3] markdown-body"
+  style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="flex flex-col h-screen"><header
+    class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f1f3f3] dark:border-b-[#1E2925] px-10 py-3 bg-white dark:bg-[#151e1b]">
+    <div class="flex items-center gap-4 text-[#131615] dark:text-[#f1f3f3]">
+        <div class="size-4">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"
+                    d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z" />
             </svg>
-          </span>
-        </label>
-
-        <div class="trigger"></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <div class="home"><h1 class="page-heading"></h1><h1 id="building-a-knowledge-graph-for-integral-ecology">Building a Knowledge Graph for Integral Ecology</h1>
-
-<p>Welcome to the Digital Library of Integral Ecology — a collaborative, open-source project exploring how we can use natural language processing (NLP), ecological knowledge, and graph databases to build better tools for environmental research and action.</p>
-
-<p>This tutorial series walks through how we are building a multilingual, entity-aware, citation-rich <strong>knowledge graph</strong> from ecological reports and academic literature.</p>
-
-<p>Whether you’re a researcher, librarian, activist, or simply curious, these guides will help you understand and contribute to our work — no technical background required.</p>
-
-<h2 id="tutorial-series">Tutorial Series</h2>
-
-<p>Here’s what we’ll explore together:</p>
-
-<ol>
-  <li>
-    <p><strong><a href="./posts/01_intro/">What Is a Knowledge Graph for Integral Ecology?</a></strong><br />
-Introduction to what we’re building and why it matters.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/02_building_blocks/">Building Blocks: Documents, Entities, and Relationships</a>s</strong><br />
-How reports are transformed into structured, searchable networks of knowledge.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/03_pdf_to_text/">From PDF to Text: Extracting Meaning from Documents</a></strong><br />
-Learn how we pull clean, useful text from messy PDFs and scientific citations.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/04_entity_tagging/">Tagging the World: Finding Places, Plants, and Ideas with AI</a></strong><br />
-How NLP tools identify ecological concepts, organizations, and more.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/05_graph_database/">Stitching the Graph: Saving Knowledge to Neo4j</a></strong><br />
-How our documents and entities are stored and visualized as a graph.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/06_annotation/">Annotation: Teaching the System to Be Smarter</a></strong><br />
-A look at Doccano and how humans refine machine learning.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/07_training_model/">Training Our Own Ecological Language Model</a></strong><br />
-Turning annotations into a smarter, ecology-specific NER system.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/08_evaluation/">Evaluating the Results: Accuracy, Speed, and Insight</a></strong><br />
-Measuring how well our models work, and what they help us uncover.</p>
-  </li>
-  <li>
-    <p><strong><a href="./posts/09_contribute/">Contribute: Join the Digital Library of Integral Ecology</a></strong><br />
-How you can help build and grow this open knowledge commons.</p>
-  </li>
-</ol>
-
-<hr />
-
-<h2 id="get-started">Get Started</h2>
-
-<p>All code is open-source and Dockerized:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/clirdlf/dlie_knowledge_graph.git
-<span class="nb">cd </span>dlie_knowledge_graph
-make build
-make pipeline <span class="nv">PDF</span><span class="o">=</span>your_report.pdf
-</code></pre></div></div>
-
-<p>You’ll extract entities, visualize the graph, and export data for annotation — in just a few steps.</p>
-
-<hr />
-<h2 id="-get-involved">🤝 Get Involved</h2>
-
-<ul>
-  <li>📚 Contribute reports or documents</li>
-  <li>🧑‍🔬 Help annotate and improve the language models</li>
-  <li>🌐 Add support for your language or region</li>
-  <li>💻 Improve the pipeline or add visualizations</li>
-</ul>
-
-<p>See the <a href="">GitHub</a> repository for details.</p>
-
-<hr />
-
-<p><em>This work is open to all. Inspired by Laudato Si’ and committed to the care of our common home.</em></p>
-</div>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/dlie_knowledge_graph/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Digital Library of Integral Ecology</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Digital Library of Integral Ecology</li><li><a class="u-email" href="mailto:wayne.graham@gmail.com">wayne.graham@gmail.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>A tutorial series on building a knowledge graph for ecology</p>
-      </div>
+        </div>
+        <h2 class="text-[#131615] dark:text-[#f1f3f3] text-lg font-bold leading-tight tracking-[-0.015em]"><a
+                href="/dlie_knowledge_graph/">DLIE</a></h2>
     </div>
+    <div class="flex flex-1 justify-end gap-8">
+        
 
+        <div class="flex gap-2">
+            <!-- <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#b7e0d2] text-[#131615] text-sm font-bold leading-normal tracking-[0.015em]">
+                <span class="truncate">Donate</span>
+            </button> -->
+
+            <button id="toggle-theme"
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#f1f3f3] dark:bg-[#1E2925] text-[#131615] dark:text-[#f1f3f3] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                <div id="sun-icon" class="text-[#131615] dark:text-[#f1f3f3]" data-icon="Sun" data-size="20px"
+                    data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z">
+                        </path>
+                    </svg>
+                </div>
+                <div id="moon-icon" class="text-[#131615] dark:text-[#f1f3f3] hidden" data-icon="Moon" data-size="20px"
+                    data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                        viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+</header><main id="main" class="flex-grow">
+          <div class="px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+
+              <div class="@container">
+    <div class="@[480px]:p-4">
+        <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url('/dlie_knowledge_graph/assets/images/background.png');">
+            <div class="flex flex-col gap-2 text-center">
+                <h1 class="text-white text-h1 font-h1 leading-tight tracking-[-0.033em]">Welcome to the Digital Library
+                    of Integral
+                    Ecology</h1>
+                <h2 class="text-white text-h5 font-h5 leading-normal">
+                    Explore a comprehensive collection of resources dedicated to understanding and promoting integral
+                    ecology, a holistic approach to environmental and social well-being.
+                </h2>
+            </div>
+            <a href="#tutorial-series">
+                <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#b7e0d2] text-[#131615] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-[#a3c9b8] transition-colors duration-300 shadow-md">
+                    <span class="truncate">Explore tutorials</span>
+                </button>
+            </a>
+        </div>
+    </div>
+</div><div class="content">
+
+   <h2>
+      Building a Knowledge Graph for Integral Ecology
+   </h2>
+
+   <p>
+      Welcome to the Digital Library of Integral Ecology — a collaborative, open-source project exploring how we can use
+      natural language processing (NLP), ecological knowledge, and graph databases to build better tools for
+      environmental
+      research and action.
+   </p>
+
+   <p>
+      This tutorial series walks through how we are building a multilingual, entity-aware, citation-rich **knowledge
+      graph**
+      from ecological reports and academic literature.
+   </p>
+
+   <p>
+      Whether you're a researcher, librarian, activist, or simply curious, these guides will help you understand and
+      contribute to our work — no technical background required.
+   </p>
+
+   <hr>
+
+
+   <h2 id="tutorial-series">Tutorial Series</h2>
+
+   <p>
+      Here's what we'll explore together:
+   </p>
+
+
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/06/25/Introduction-to-what-we're-building-and-why-it-matters">What is a Knowledge Graph for Integral Ecology?
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            Introduction to what we're building and why it matters.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/06/26/How-reports-are-transformed-into-structured,-searchable-networks-of-knowledge">Building Blocks: Documents, Entities, and Relationships
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            How reports are transformed into structured, searchable networks of knowledge.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/06/27/Learn-how-we-pull-clean,-useful-text-from-messy-PDFs-and-scientific-citations">From PDF to Text: Extracting Meaning from Documents
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            Learn how we pull clean, useful text from messy PDFs and scientific citations.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/06/28/How-NLP-tools-identify-ecological-concepts,-organizations,-and-more">Tagging the World: Finding Places, Plants, and Ideas with AI
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            How NLP tools identify ecological concepts, organizations, and more.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/06/29/A-look-at-Doccano-and-how-humans-refine-machine-learning">Annotation: Teaching the System to Be Smarter
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            A look at Doccano and how humans refine machine learning.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/07/01/Measuring-how-well-our-models-work,-and-what-they-help-us-uncover">Evaluating the Results: Accuracy, Speed, and Insight
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            Measuring how well our models work, and what they help us uncover.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/07/02/How-our-documents-and-entities-are-stored-and-visualized-as-a-graph">Stitching the Graph: Saving Knowledge to Neo4j
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            How our documents and entities are stored and visualized as a graph.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/07/03/Turning-annotations-into-a-smarter,-ecology-specific-NER-system">Training Our Own Ecological Language Model
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            Turning annotations into a smarter, ecology-specific NER system.
+         </p>
+      </div>
+   </div>
+   
+   <div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+      <div class="flex flex-1 flex-col justify-center">
+         <p class="text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal">
+            <a class="underline" href="/dlie_knowledge_graph/2025/07/04/How-you-can-help-build-and-grow-this-open-knowledge-commons">Contribute: Join the Digital Library of Integral Ecology
+            </a>
+         </p>
+         <p class="text-[#63887c] dark:text-[#b7e0d2] text-sm font-normal leading-normal">
+            How you can help build and grow this open knowledge commons.
+         </p>
+      </div>
+   </div>
+   
+
+   <hr>
+
+   <h2>Get Started</h2>
+
+   <p>All code is open-source and Dockerized:</p>
+
+   <figure class="highlight"><pre><code class="language-bash" data-lang="bash">   git clone https://github.com/clirdlf/dlie_knowledge_graph.git
+   <span class="nb">cd </span>dlie_knowledge_graph
+   make build
+   make pipeline <span class="nv">PDF</span><span class="o">=</span>your_report.pdf
+   </code></pre></figure>
+
+
+   <p>You'll extract entities, visualize the graph, and export data for annotation — in just a few steps.</p>
+
+   <hr>
+
+   <h2> 🤝 Get Involved</h2>
+
+   <ul>
+      <li>📚 Contribute reports or documents</li>
+      <li>🧑‍🔬 Help annotate and improve the language models</li>
+      <li>🌐 Add support for your language or region</li>
+      <li>💻 Improve the pipeline or add visualizations</li>
+   </ul>
+
+   <p class="pt-3">
+      See the <a class="underline" href="https://github.com/clirdlf/dlie_knowledge_graph"></a>GitHub</a> repository for
+      details.
+   </p>
+
+</div>
+            </div>
+          </div>
+        </main><footer
+    class="flex justify-center border-top border-solid border-[#56b9b9] bg-white dark:bg-[#151e1b] px-5 py-10 @container">
+
+    <div class="flex max-w-[960px] flex-1 flex-col">
+        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+            <p>🕊️ <em>Part of the Digital Library of Integral Ecology: Building open, multilingual tools for ecological
+                    understanding.</em></p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a target="_blank" href="https://www.linkedin.com/company/6203386/">
+                    <div class="text-[#6c7f78] dark:text-[#b7e0d2]" data-icon="LinkedinLogo" data-size="24px"
+                        data-weight="regular">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z">
+                            </path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://github.com/clirdlf/dlie_knowledge_graph">
+                    <div class="text-[#6c7f78] dark:text-[#b7e0d2]" data-icon="GithubLogo" data-size="24px"
+                        data-weight="regular">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z">
+                            </path>
+                        </svg>
+                    </div>
+                </a>
+                <a target="_blank" href="https://www.clir.org/">
+                    <div class="text-[#6c7f78] dark:text-[#b7e0d2]" data-icon="Question" data-size="24px"
+                        data-weight="regular">
+                        <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 903.24 464.27" height="24px" fill="currentColor">
+                            <defs>
+                                <style>
+                                    .cls-1,
+                                    .cls-2 {
+                                        fill: #6c7f78;
+                                    }
+
+                                    .cls-2 {
+                                        stroke: #6c7f78;
+                                        stroke-miterlimit: 10;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="Layer_1-2">
+                                <path class="cls-1" d="M883.24,20v424.27H20V20h863.24M903.24,0H0v464.27h903.24V0h0Z" />
+                                <path class="cls-2"
+                                    d="M107.95,234.17c0-57.17,41.59-100.39,96.46-100.39,32.11,0,49.32,14.77,55.82,14.77,8.54,0,5.42-8.94,13.28-8.94,4.34,0,6.23,2.03,6.23,6.64v50.67c0,3.52-1.76,5.83-4.61,5.83s-5.01-1.08-7.32-6.5c-12.87-31.16-36.85-49.45-64.62-49.45-37.53,0-65.17,32.92-65.17,77.36,0,47.96,30.62,81.97,73.7,81.97,26.01,0,47.28-14.23,63.27-42.13,1.49-2.98,4.2-4.06,6.5-3.52,3.12.81,4.88,3.52,3.52,6.91-13.68,39.15-45.39,63.13-84.27,63.13-53.65,0-92.8-40.78-92.8-96.33Z" />
+                                <path class="cls-2"
+                                    d="M306.68,327.24c-3.66,0-4.34-2.57-4.34-5.42,0-3.25.14-5.55,4.88-6.1l11.79-1.22c13.28-1.22,17.07-6.91,17.07-20.19v-124.37c0-13.28-3.79-18.97-17.07-20.19l-11.79-1.22c-4.74-.54-4.88-2.85-4.88-6.1,0-2.85.68-5.42,4.34-5.42,13.41,0,28.45.41,43.62.41h.41c15.17,0,30.08-.41,43.62-.41,3.52,0,4.34,2.57,4.34,5.42,0,3.25-.27,5.55-4.88,6.1l-11.79,1.22c-13.28,1.22-17.07,6.91-17.07,20.19v122.75c0,17.21,5.01,21.81,24.52,21.81h34.14c16.53,0,20.73-2.85,32.24-43.76,1.08-3.79,2.98-5.42,5.96-5.42s5.01,2.44,5.01,5.55v49.99c0,4.34-1.9,6.23-6.37,6.23-36.31,0-65.98,0-106.89-.27h-3.25c-15.17,0-30.21.41-43.62.41Z" />
+                                <path class="cls-2"
+                                    d="M533.27,326.83c-15.04,0-30.08.41-43.35.41-3.66,0-4.34-2.57-4.34-5.42,0-3.25.14-5.55,4.88-6.1l11.79-1.22c13.28-1.22,17.07-6.91,17.07-20.19v-124.37c0-13.28-3.79-18.97-17.07-20.19l-11.79-1.22c-4.74-.54-4.88-2.85-4.88-6.1,0-2.85.68-5.42,4.34-5.42,13.28,0,28.32.41,43.35.41s29.94-.41,43.35-.41c3.52,0,4.34,2.57,4.34,5.42,0,3.25-.27,5.55-4.88,6.1l-11.79,1.22c-13.28,1.22-17.07,6.91-17.07,20.19v124.37c0,13.28,3.79,18.97,17.07,20.19l11.79,1.22c4.61.54,4.88,2.85,4.88,6.1,0,2.85-.81,5.42-4.34,5.42-13.41,0-28.04-.41-43.08-.41h-.27Z" />
+                                <path class="cls-2"
+                                    d="M604.53,315.73l11.79-1.08c13.28-1.35,17.07-6.91,17.07-20.19v-124.64c0-13.28-3.79-18.83-17.07-20.19l-11.79-1.08c-4.74-.54-4.88-2.98-4.88-6.1s.68-5.55,4.34-5.55c13.41,0,28.45.41,43.62.41h2.3c8.13,0,23.03-.54,31.97-.54,55.41,0,86.57,19.92,86.57,54.33,0,25.06-16.66,45.25-45.93,54.73l28.99,46.06c11.38,18.15,16.26,21.81,38.61,23.44,3.52.27,5.15,2.57,5.15,6.1,0,3.93-1.76,5.83-5.55,5.83-3.39,0-13.14-.27-21.95-.27s-14.23.27-17.48.27c-8.67,0-11.52-2.17-15.58-8.54l-34.14-55.82c-5.28-8.67-10.84-11.38-22.63-11.38h-15.85v42.95c0,13.28,4.06,18.83,18.29,20.19l12.6,1.08c5.01.54,5.28,2.98,5.28,6.1s-.81,5.55-4.74,5.55c-14.23,0-30.21-.41-46.33-.41-15.04,0-29.94.41-43.22.41-3.66,0-4.34-2.57-4.34-5.55s.14-5.55,4.88-6.1ZM736.63,192.71c0-27.5-20.73-43.49-52.7-43.49-16.53,0-21.81,4.2-21.81,17.61v72.48h18.7c34.01,0,55.82-18.29,55.82-46.61Z" />
+                            </g>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            <p class="text-[#6c7f78] dark:text-[#b7e0d2] text-base font-normal leading-normal">© 2025 <a
+                    class="underline" target="_blank" href="https://www.clir.org">CLIR</a>. All rights
+                reserved.</p>
+        </footer>
+    </div>
+</footer></div>
+      <script src="/dlie_knowledge_graph/assets/js/main.js"></script>
+    </div>
   </div>
 
-</footer>
 </body>
 
 </html>

@@ -1,9 +1,8 @@
 ---
 title: "Tagging the World: Finding Places, Plants, and Ideas with AI"
+slug: How NLP tools identify ecological concepts, organizations, and more.
 layout: post
 ---
-
-# Tagging the World: Finding Places, Plants, and Ideas with AI
 
 Once we've extracted clean text from a PDF, the next step is to **understand what’s being talked about**.
 
@@ -11,16 +10,16 @@ That’s where Natural Language Processing (NLP) comes in.
 
 We use NLP to scan the text and find key pieces of information — like:
 
-- 🌍 Locations (e.g. "Amazon rainforest")
-- 🏢 Organizations (e.g. "WWF")
-- 🌿 Ecological concepts (e.g. "resilience", "biodiversity loss")
-- 📚 Citations (e.g. "IPBES 2019 Report")
+- Locations (e.g. "Amazon rainforest")
+- Organizations (e.g. "WWF")
+- Ecological concepts (e.g. "resilience", "biodiversity loss")
+- Citations (e.g. "IPBES 2019 Report")
 
 Each of these is called an **entity**, and this process is called **Named Entity Recognition (NER)**.
 
 ---
 
-## 🧠 What is Named Entity Recognition?
+## What is Named Entity Recognition?
 
 NER is a type of AI model that reads text and labels the parts that represent real-world things.
 
@@ -128,8 +127,9 @@ You can also run it independently:
 docker compose exec worker python ner_pipeline.py my-report.txt
 ```
 
-What’s Next?
+---
+
+## What’s Next?
 
 Next, we’ll take these entities and load them into Neo4j — our graph database — where we can start to visualize and query relationships.
 
-👉 Continue to [Part 5 »](05_graph_database)

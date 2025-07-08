@@ -1,9 +1,10 @@
 ---
 title: "Training Our Own Ecological Language Model"
+slug:    Turning annotations into a smarter, ecology-specific NER system.
 layout: post
 ---
 
-# 🧪 Training Our Own Ecological Language Model
+# Training Our Own Ecological Language Model
 
 We’ve built a working NLP pipeline that tags organizations, locations, and ecological concepts from multilingual reports. We’ve even used Doccano to correct and improve those tags.
 
@@ -13,7 +14,7 @@ This post explains how we take human-labeled examples and turn them into a smart
 
 ---
 
-## 🤖 Why Train a Custom Model?
+## Why Train a Custom Model?
 
 spaCy’s built-in models are trained on general-purpose data. They work well, but they don’t understand:
 
@@ -29,7 +30,7 @@ Training your own model lets you:
 
 ---
 
-## 🧰 Tools We Use
+## Tools We Use
 
 We use [spaCy](https://spacy.io)’s training framework. It supports:
 
@@ -39,7 +40,7 @@ We use [spaCy](https://spacy.io)’s training framework. It supports:
 
 ---
 
-## 🔄 From Doccano to Training Data
+## From Doccano to Training Data
 
 After annotating in Doccano:
 
@@ -105,7 +106,7 @@ This helps you compare:
 
 ⸻
 
-🧪 Try It Yourself
+## Try It Yourself
 
 Once you have annotations from Doccano:
 
@@ -142,8 +143,6 @@ This is how the Digital Library of Integral Ecology gets smarter over time — p
 
 ⸻
 
-What’s Next?
+## What’s Next?
 
 In the final post, we’ll evaluate the full system and compare how well the pipeline performs **before and after training**, across languages and document types.
-
-👉 [Continue to Part 8]() »

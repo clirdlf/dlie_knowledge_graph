@@ -1,7 +1,16 @@
 title: Digital Library of Integral Ecology
 description: A tutorial series on building a knowledge graph for ecology
-theme: minima
+# theme: minima
 markdown: kramdown
+highlighter: rouge
+input: GFM
+
+kramdown:
+  auto_ids: true
+
+github: https://github.com/clirdlf/dlie_knowledge_graph
+linked_in: https://www.linkedin.com/company/6203386/
+
 baseurl: "/dlie_knowledge_graph" # Leave blank unless using a custom subpath
 
 permalink: pretty
@@ -12,13 +21,9 @@ email: wayne.graham@gmail.com
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-postcss
 
-header_pages:
-  - posts
-
-minima:
-  skin: auto
-
-  social_links:
-    github: your-username
-    linkedin: your-handle
+exclude:
+  - package.json
+  - postcss.config.js
+  - tailwind.config.js

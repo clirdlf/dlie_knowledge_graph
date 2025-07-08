@@ -1,9 +1,8 @@
 ---
 title: "Building Blocks: Documents, Entities, and Relationships"
+slug: How reports are transformed into structured, searchable networks of knowledge.
 layout: post
 ---
-
-# Building Blocks: Documents, Entities, and Relationships
 
 In our last post, we introduced the vision: building a knowledge graph for **integral ecology**, a way to connect people, places, organizations, and ideas across languages and disciplines.
 
@@ -66,9 +65,9 @@ These relationships turn isolated data points into an **interconnected network**
 Here's a simple example:
 
 ```cypher
-[WWF Report] –MENTIONS–> [Amazon rainforest]
-–MENTIONS–> [climate resilience]
-–CITES—–> [IPBES 2019 Report]
+[WWF Report]–MENTIONS–>[Amazon rainforest]
+–MENTIONS–>[climate resilience]
+–CITES—–>[IPBES 2022 Report]
 ```
 
 In the graph database, each of these is a **node** (document or entity) and each arrow is a **relationship**.
@@ -97,10 +96,10 @@ And it sets the stage for automation, collaboration, and learning.
 
 You can explore and run this pipeline locally using Docker.
 
-### 🧰 Prerequisites
+### Prerequisites
 
-- Docker (Desktop or CLI)  
-- Git
+- [Docker](https://www.docker.com/) (Desktop or CLI)  
+- [Git](https://git-scm.com/)
 
 ### Step 1: Clone the Repository
 
@@ -126,7 +125,7 @@ This will spin up:
 Then, you can run the full pipeline like this:
 
 ```bash
-make pipeline PDF=sample.pdf
+make pipeline PDF=/data/input/202206_IPBES_GLOBALREPORT.pdf
 ```
 
 You’ll find the results in the `data/output/` and `data/doccano/` folders.
@@ -136,8 +135,5 @@ You’ll find the results in the `data/output/` and `data/doccano/` folders.
 
 In the next post, we’ll start **extracting text from real reports** — even messy PDFs — using smart tools like PyMuPDF and GROBID.
 
-👉 [Continue to Part 3 »](./03_pdf_to_text.html)
 
----
 
-🕊️ *Part of the Digital Library of Integral Ecology: Building open, multilingual tools for ecological understanding.

@@ -1,0 +1,47 @@
+name: Build and Deploy Site
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write  # required for GitHub Pages deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 🧱 Checkout source code
+      - uses: actions/checkout@v3
+
+      # 💎 Set up Ruby for Jekyll
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
+
+      # 📦 Set up Node.js for Tailwind + PostCSS
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 🔧 Install dependencies
+      - name: Install Ruby and NPM packages
+        working-directory: ./docs
+        run: |
+          bundle install
+          npm install
+
+      # 🛠️ Build Jekyll site (including PostCSS/Tailwind)
+      - name: Build site
+        working-directory: ./docs
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build
+
+      # 🚀 Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_site

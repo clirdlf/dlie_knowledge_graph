@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en'}}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" />
+  {%- seo -%}
+
+  <link id="main-stylesheet" rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  {%- feed_meta -%}
+  {% if jekyll.environment == 'production' and site.google_analytics -%}
+  {%- include google-analytics.html -%}
+  {%- endif -%}
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
+
+<body class="bg-white dark:bg-[#151e1b] text-[#131615] dark:text-[#f1f3f3] markdown-body"
+  style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="flex flex-col h-screen">
+        {%- include navigation.html -%}
+        <main id="main" class="flex-grow">
+          <div class="px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+
+              {{ content | safe }}
+            </div>
+          </div>
+        </main>
+        {%- include footer.html -%}
+      </div>
+      <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    </div>
+  </div>
+
+</body>
+
+</html>

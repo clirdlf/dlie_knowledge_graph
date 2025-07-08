@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<div class="flex flex-wrap justify-between gap-3 p-4 pb-4">
+    <div class="flex min-w-72 flex-col gap-3">
+        <h1>{{page.title}}</h1>
+        <p class="slug">{{ page.slug }}</p>
+    </div>
+</div>
+
+
+{{ content }}
+
+{%- include post-navigation.html -%}

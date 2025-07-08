@@ -1,10 +1,9 @@
 ---
 title: "Stitching the Graph: Saving Knowledge to Neo4j"
+slug:    How our documents and entities are stored and visualized as a graph.
+
 layout: post
 ---
-
-
-# Stitching the Graph: Saving Knowledge to Neo4j
 
 So far, we’ve extracted clean text from ecological reports and used AI to identify important entities like organizations, places, and ecological concepts.
 
@@ -14,7 +13,7 @@ In this post, we show how we use **Neo4j**, a graph database, to stitch everythi
 
 ---
 
-## 🧠 What is a Graph Database?
+## What is a Graph Database?
 
 A **graph database** stores information as **nodes** (things) and **relationships** (connections).
 
@@ -123,5 +122,3 @@ This is where our static data becomes **living knowledge**.
 ## What’s Next?
 
 Now that our knowledge is structured and searchable, we’ll look at how to **export the data to Doccano**, a simple annotation tool that lets humans teach the system to improve over time.
-
-👉 Continue to Part 6 »
