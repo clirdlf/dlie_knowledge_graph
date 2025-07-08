@@ -39,8 +39,14 @@ jobs:
         run: |
           JEKYLL_ENV=production bundle exec jekyll build
 
-      - name: Log built CSS file
-        run: cat ./docs/_site/assets/css/main.css | head -n 40
+      - name: Log compiled Tailwind CSS
+        run: |
+            echo "Compiled CSS preview:"
+            cat ./docs/_site/assets/css/main.css | head -n 40 | tee /dev/stdout
+
+      - name: Print first tailwind class
+        run: |
+            grep -m 1 "\.text-" ./docs/_site/assets/css/main.css || echo "No Tailwind classes found"
 
       # Deploy to GitHub Pages
       - name: Deploy
