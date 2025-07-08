@@ -54,10 +54,10 @@ jobs:
       - name: List deployed files
         run: find ./docs/_site -type f
 
-      - name: Overwrite source CSS with compiled output
+      - name: Compile Tailwind CSS manually
         working-directory: ./docs
         run: |
-            cp _site/assets/css/main.css assets/css/main.css
+            npx postcss assets/css/tailwind.css -o assets/css/main.css
 
       # Deploy to GitHub Pages
       - name: Deploy
