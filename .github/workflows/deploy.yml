@@ -57,7 +57,7 @@ jobs:
       - name: Compile Tailwind CSS manually
         working-directory: ./docs
         run: |
-            npx postcss assets/css/tailwind.css -o assets/css/main.css
+            postcss assets/css/tailwind.css -o assets/css/main.css
 
       # Deploy to GitHub Pages
       - name: Deploy
