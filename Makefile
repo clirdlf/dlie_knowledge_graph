@@ -31,10 +31,19 @@ jekyll:
 # Pipeline
 pipeline:
 	@echo "Running full pipeline on $(PDF)"
+
 	docker compose run worker python extract_text.py $(PDF)
-	docker compose run worker python ner_pipeline.py $(BASENAME).txt
-	docker compose run worker python graph_upload.py $(BASENAME).entities.json
-	docker compose run worker python export_doccano.py $(BASENAME).entities.json
+	docker compose run worker python ner_pipeline.py /data/output/$(notdir $(basename $(PDF)).txt)
+	docker compose run worker python graph_upload.py /data/output/$(notdir $(basename $(PDF)).entities.json)
+	docker compose run worker python export_doccano.py /data/output/$(notdir $(basename $(PDF)).entities.json)
+
+# Run the pipeline on all PDFs in /data/input
+all-pdfs:
+	@for file in $$(ls data/input/*.pdf); do \
+		name=$$(basename $$file); \
+		echo "🔁 Running pipeline on $$name..."; \
+		make pipeline PDF=$$name; \
+	done
 
 # Doccano and Neo4j
 open-doccano:
