@@ -81,7 +81,7 @@ Log in with
 From there, you can 
 
 1. Create a new NER project - be sure to select **Sequence Labeling**
-2. Import your `.jsonl` file (generated in previous step)
+2. Import your `.jsonl` file (generated in previous step - `data/output/)
 3. Start tagging!
 
 ---
