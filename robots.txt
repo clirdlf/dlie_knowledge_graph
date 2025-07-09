@@ -1,0 +1,4 @@
+
+User-agent: *
+Allow: /
+Sitemap: https://clirdlf.github.io/dlie_knowledge_graph/sitemap.xml
