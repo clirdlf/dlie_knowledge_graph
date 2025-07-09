@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  # contents: write  # Required to push to gh-pages
-  contents: read
+  contents: write  # Required to push to gh-pages
+  # contents: read
   pages: write
   id-token: write
 
