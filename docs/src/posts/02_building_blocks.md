@@ -40,7 +40,7 @@ For example:
 | climate resilience    | `ECO_CONCEPT` |
 | Laudato Si’           | `DOCUMENT`  |
 
-Our system uses **Natural Language Processing (NLP)** tools to automatically recognize these entities in many languages — with models trained on large text collections.
+Our system uses **Natural Language Processing (NLP)** tools to automatically recognize these entities in many languages, with models trained on large text collections.
 
 Later, we’ll even **fine-tune our own models** to be more accurate for ecological language.
 
@@ -48,13 +48,13 @@ Later, we’ll even **fine-tune our own models** to be more accurate for ecologi
 
 ## 3. Relationships
 
-The real power of a knowledge graph comes from the **connections between entities** — also called **edges** or **relationships**.
+The real power of a knowledge graph comes from the **connections between entities**, also called **edges** or **relationships**.
 
 Some examples:
 
-- A document **MENTIONS** an entity
-- A document **CITES** another document
-- A concept **IS_RELATED_TO** another concept
+- A document **MENTIONS** an entity (e.g. a location, organization, etc.)
+- A document **CITES** another document 
+- A concept **IS_RELATED_TO** another concept 
 - An organization **WORKS_IN** a specific region
 
 These relationships turn isolated data points into an **interconnected network** — where you can explore patterns, paths, and shared meaning.
@@ -95,7 +95,7 @@ And it sets the stage for automation, collaboration, and learning.
 
 ## Try It Yourself: Clone & Run the Project
 
-You can explore and run this pipeline locally using Docker.
+You can explore and run this pipeline locally using Docker (and the terminal)
 
 ### Prerequisites
 
@@ -134,7 +134,4 @@ You’ll find the results in the `data/output/` and `data/doccano/` folders.
 
 ## What’s Next?
 
-In the next post, we’ll start **extracting text from real reports** — even messy PDFs — using smart tools like PyMuPDF and GROBID.
-
-
-
+In the next post, we’ll start **extracting text from real reports**, even messy PDFs, using smart tools like PyMuPDF and GROBID.

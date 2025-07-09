@@ -6,7 +6,7 @@ layout: post
 ---
 
 
-The first step in building a knowledge graph for integral ecology is simple in concept — but tricky in practice:
+The first step in building a knowledge graph for integral ecology is simple in concept, but tricky in practice:
 
 > How do we get clean, usable **text** from messy, multilingual **PDF reports**?
 
@@ -21,6 +21,7 @@ This post explains how we extract both the **raw text** and the **structured cit
 PDFs are designed for printing, not for reading by machines.
 
 They can include:
+
 - Columns and footnotes
 - Images, tables, and scanned pages
 - Embedded fonts or malformed characters
@@ -32,9 +33,10 @@ If we want to detect entities and link knowledge later, we need high-quality **p
 
 ## Step 1: Extract Text with PyMuPDF
 
-We use [`PyMuPDF`](https://pymupdf.readthedocs.io/) (also known as `fitz`) to extract the text page-by-page from a PDF.
+We use [`PyMuPDF`](https://pymupdf.readthedocs.io/) to extract the text page-by-page from a PDF.
 
 It:
+
 - Preserves layout well
 - Handles multiple languages
 - Works with scanned+OCR’d documents if text is embedded
@@ -75,25 +77,25 @@ Later in the pipeline, this will help us:
 
 ## How This Works in Code
 
-Our system includes a script that does this automatically:
+Our system includes a script that does this automatically with a script:
 
 ```bash
 python extract_text.py my-report.pdf
 ```
 
-It will:
+This script:
 
 1.	Extract the full text using PyMuPDF → `my-report.txt`
 2.	Send the PDF to the GROBID API → `my-report.biblio.xml`
 
-The script runs inside a Docker container and outputs files to the `/data/output/` folder.
+The script runs inside a Docker container and outputs files to the `/data/output/` folder (`data/output` on your local machine).
 
 ## Try It Yourself
 
 If you’ve followed the setup from [Part 2](/posts/20_building_blocks/), you can run:
 
 ```bash
-make pipeline PDF=my-report.pdf
+make pipeline PDF=/data/input/sample1.pdf
 ```
 
 This will:
@@ -103,13 +105,13 @@ This will:
 * Load data into Neo4j
 * Export annotated text for review
 
-Check the results in `data/output/` — you’ll see `.txt`, `.entities.json`, and `.biblio.xml` files.
+Check the results in `data/output/`, you _should_ see `.txt`, `.entities.json`, and `.biblio.xml` files.
 
 ---
 
 ## What We Learned
 
-* PDFs are tricky, but PyMuPDF gives us reliable plain text
+* PDFs are complex and tricky, but PyMuPDF gives us reliable plain text to work with
 * GROBID gives us structured citations, ready for linking
 * Clean text is the foundation for everything that follows
 
@@ -117,6 +119,4 @@ Check the results in `data/output/` — you’ll see `.txt`, `.entities.json`, a
 
 ## What’s Next?
 
-In the next post, we’ll explore how we tag entities in the text using AI — recognizing organizations, locations, ecological concepts, and more.
-
-
+In the next post, we’ll explore how we tag entities in the text using AI, recognizing organizations, locations, ecological concepts, and more.

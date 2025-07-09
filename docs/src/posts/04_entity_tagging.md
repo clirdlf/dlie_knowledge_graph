@@ -9,12 +9,12 @@ Once we've extracted clean text from a PDF, the next step is to **understand wha
 
 That’s where Natural Language Processing (NLP) comes in.
 
-We use NLP to scan the text and find key pieces of information — like:
+We use NLP to scan the text and find key pieces of information like:
 
-- Locations (e.g. "Amazon rainforest")
-- Organizations (e.g. "WWF")
-- Ecological concepts (e.g. "resilience", "biodiversity loss")
-- Citations (e.g. "IPBES 2019 Report")
+- **Locations** (e.g. "Amazon rainforest")
+- **Organizations** (e.g. "WWF")
+- **Ecological concepts** (e.g. "resilience", "biodiversity loss")
+- **Citations** (e.g. "IPBES 2019 Report")
 
 Each of these is called an **entity**, and this process is called **Named Entity Recognition (NER)**.
 
@@ -45,12 +45,12 @@ This gives us structured data from unstructured sentences, and helps us populate
 We use [spaCy](https://spacy.io), a popular open-source NLP library that can:
 
 * Work in English, Spanish, French, Chinese, Russian, and more
-* Recognize standard entities like ORG, LOC, PERSON, etc.
+* Recognize standard entities like **ORG**, **LOC**, **PERSON**, etc.
 * Run fast and integrate easily with Python
 
 ### TaxoNERD
 
-For ecological texts, general NLP isn’t enough — so we also use [TaxoNERD](https://github.com/nleguillarme/taxonerd), a tool trained to detect ecological and taxonomic entities, like:
+For ecological texts, general NLP isn’t enough so we also use [TaxoNERD](https://github.com/nleguillarme/taxonerd), a tool trained to detect ecological and taxonomic entities, like:
 
 * Ecosystem types
 * Species groups
@@ -60,7 +60,7 @@ For ecological texts, general NLP isn’t enough — so we also use [TaxoNERD](h
 
 ### Multilingual Support
 
-We also include spaCy models for:
+We also use spaCy models for:
 
 * [fr_core_news_lg](https://spacy.io/models/fr#fr_core_news_lg) (French)
 * [es_core_news_lg](https://spacy.io/models/es#es_core_news_lg) (Spanish)
@@ -92,7 +92,7 @@ Which produces:
 }
 ```
 
-This is saved as `my-report.entities.json` in the `data/output/` directory.
+This is saved as `my-report.entities.json` in the `data/output/` directory. This generates a data structure that has the original text, then all the entities the models have found, with the starting (`start`) and ending character (`end`) space in the text, a standardized label (`label`), and the that was detected (`text`). 
 
 ---
 
@@ -105,7 +105,7 @@ Recognizing entities allows us to:
 * Connect related documents, even across languages
 * Support annotation and model training
 
-It’s the first step toward turning plain text into a semantic map.
+This is the first step toward turning plain text into a semantic map.
 
 ---
 
@@ -123,7 +123,7 @@ The entity tagging will run automatically. Check the output in:
 data/output/sample1.entities.json
 ```
 
-You can also run it independently:
+You can also run the script independently:
 
 ```bash
 docker compose exec worker python ner_pipeline.py /data/input/sample1.txt

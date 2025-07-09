@@ -17,7 +17,7 @@ In this post, we show how we use **Neo4j**, a graph database, to stitch everythi
 
 A **graph database** stores information as **nodes** (things) and **relationships** (connections).
 
-Unlike traditional databases, which store rows and columns, a graph lets you explore:
+Unlike traditional databases, which store rows and columns, a graph lets you explore relationships:
 
 ```plaintext
 (WWF Report) –MENTIONS–> (Amazon rainforest)
@@ -27,12 +27,12 @@ Unlike traditional databases, which store rows and columns, a graph lets you exp
 
 Neo4j is the most popular open-source graph database. It’s:
 - Visual
-- Easy to query (using a language called Cypher)
+- "Easy" to query (using a language called [Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/))
 - Designed to handle relationships efficiently
 
 ---
 
-## 🧱 What We Store in the Graph
+## What We Store in the Graph
 
 Each document and entity we extract becomes a **node**, and their connections are modeled as **relationships**.
 
@@ -51,13 +51,13 @@ Each node has properties like:
 ### Relationship Types
 
 * `(:Document)-[:MENTIONS]->(:Entity)`
-* `(:Document)-[:CITES]->(:Document)` (coming soon via citation parsing)
+* `(:Document)-[:CITES]->(:Document)`
 
 These relationships make the knowledge **navigable**, not just searchable.
 
 ## How It Works in Code
 
-After entity tagging, we load the data into Neo4j using:
+After entity tagging, we load the data into Neo4j using a python script:
 
 ```bash
 python graph_upload.py my-report.entities.json
@@ -93,7 +93,7 @@ RETURN d, e
 If you’ve run the full pipeline:
 
 ```bash
-make pipeline PDF=my-report.pdf
+make pipeline PDF=/data/input/sample1.pdf
 ```
 
 The upload to Neo4j is done automatically. Otherwise, you can run it directly:

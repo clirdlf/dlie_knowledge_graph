@@ -5,7 +5,7 @@ date: 2025-06-06
 layout: post
 ---
 
-Our pipeline can already extract text from reports, tag entities, and build a multilingual knowledge graph — but how accurate is it?
+Our pipeline can already extract text from reports, tag entities, and build a multilingual knowledge graph, but how accurate is it?
 
 The truth is: even good AI needs **human correction**. That's where **annotation** comes in.
 
@@ -19,7 +19,7 @@ Even the best models make mistakes:
 
 - Misclassifying entities (e.g. "Amazon" as a product instead of a forest)
 - Missing subtle ecological terms (like “resilience” or “eco-conversion”)
-- Struggling with languages like Arabic or complex phrases
+- Struggling with under-represented languages (like Arabic) or complex phrases
 
 Annotation lets humans:
 
@@ -27,7 +27,7 @@ Annotation lets humans:
 - Add missing terms
 - Build reliable training data
 
-It’s like proofreading — but for a machine learning system.
+It’s like proofreading, but for a machine learning system.
 
 ---
 
@@ -42,7 +42,7 @@ It provides:
 - Role-based user access
 - Easy data import and export
 
-We use Doccano to refine the results of `ner_pipeline.py`.
+We use Doccano to refine the results of running the `ner_pipeline.py` script.
 
 ---
 
@@ -80,7 +80,7 @@ Log in with
 
 From there, you can 
 
-1. Create a new NER project
+1. Create a new NER project - be sure to select **Sequence Labeling**
 2. Import your `.jsonl` file (generated in previous step)
 3. Start tagging!
 
