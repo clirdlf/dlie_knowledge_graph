@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hero {
+    h1 {
+      @apply text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight text-center break-words;
+    }
+
+    h2 {
+      @apply text-white text-h5 font-h5 leading-normal;
+    }
+
+    /* button {
+      @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#b7e0d2] text-[#131615] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-[#a3c9b8] transition-colors duration-300 shadow-md;
+    } */
+  }
+
+  .post-title {
+    @apply text-[#111815] dark:text-[#f1f3f3] text-h5 font-h5 leading-normal;
+  }
+  .post-meta {
+    @apply text-[#54776c] dark:text-[#b7e0d2] text-sm font-normal leading-normal;
+  }
+
+  
+  .blog-header {
+    h1 {
+      @apply text-[#0e1b17] dark:text-[#f1f3f3] text-h1 font-h1 leading-tight;
+    }
+
+    p {
+      @apply text-[#3e7c6a] dark:text-[#b7e0d2] text-h5 font-h5 leading-normal pl-0;
+    }
+  }
+
+  .blog-post {
+    @apply px-40 flex flex-1 justify-center py-5;
+
+    a {
+      @apply underline;
+    }
+  }
+
+  .post-navigation {
+    @apply flex justify-between items-center py-8 border-t border-gray-200 mt-12;
+
+    a {
+      @apply no-underline;
+    }
+  }
+}
+
+@layer base {
+  h2 {
+    @apply text-[#131615] dark:text-[#f1f3f3] text-h2 font-h2 leading-tight tracking-[-0.015em] px-4 pb-3 pt-5;
+  }
+
+  h3 {
+    @apply text-h3 font-h3 leading-tight text-[#0e1b17] dark:text-[#f1f3f3] px-4 pb-4 pt-5;
+  }
+
+  pre {
+    @apply pb-20;
+  }
+
+  p {
+    @apply text-base font-normal leading-normal pb-3 pt-1 px-4;
+  }
+
+  hr {
+    @apply h-px my-8 bg-gray-200 border-0 dark:bg-gray-700;
+  }
+
+  ul {
+    @apply w-full list-disc list-inside py-5 ml-5 w-full;
+  }
+
+  ol {
+    @apply w-full list-decimal list-inside py-5 ml-5 w-full;
+  }
+
+  blockquote {
+    @apply border-l-4 border-gray-300 pl-6 italic text-gray-700 bg-gray-50 p-4 rounded-md shadow-sm my-5 pt-5;
+  }
+
+  table {
+        @apply min-w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm my-10;
+
+        thead { 
+            @apply bg-gray-50 text-left font-semibold text-gray-700; 
+
+            th { @apply px-4 py-2 border-b border-gray-200; }
+        }
+
+        tbody {
+            @apply text-gray-800;
+
+            tr {
+                @apply hover:bg-gray-50;
+
+                td { @apply px-4 py-2 border-b border-gray-100; }
+            }
+        }
+
+    }
+}

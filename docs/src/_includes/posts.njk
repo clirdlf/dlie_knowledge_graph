@@ -1,0 +1,12 @@
+{% set postslist = collections.posts %}
+
+{% for post in collections.posts %}
+<div class="flex gap-4 bg-white dark:bg-transparent px-4 py-3">
+    <div class="flex flex-1 flex-col justify-center">
+        <h3 class="post-title">
+            <a class="underline" href="{{ post.url }}">{{ post.data.title }}</a>
+        </h3>
+        <p class="post-meta">{{ post.data.slug }}</p>
+    </div>
+</div>
+{% endfor %}

@@ -25,8 +25,8 @@ logs:
 install-worker:
 	docker compose run worker pip install -r requirements.txt
 
-jekyll:
-	cd docs && bundle exec jekyll serve -l
+web:
+	cd docs && pnpm start
 
 # Pipeline
 pipeline:
@@ -44,6 +44,16 @@ all-pdfs:
 		echo "🔁 Running pipeline on $$name..."; \
 		make pipeline PDF=$$name; \
 	done
+
+train-model:
+	docker compose run worker bash -c "\
+	  python -m spacy train config.cfg \
+	    --paths.train /data/doccano/train.jsonl \
+	    --paths.dev /data/doccano/dev.jsonl \
+	    --output /data/output"
+
+evaluate-model:
+	docker compose run worker python -m spacy evaluate /data/output/model-best /data/doccano/dev.jsonl
 
 # Doccano and Neo4j
 open-doccano:

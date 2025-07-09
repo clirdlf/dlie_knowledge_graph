@@ -1,0 +1,76 @@
+---
+title: Digital Library of Integral Ecology
+description: A comprehensive collection of resources dedicated to understanding and promoting integral ecology, a holistic approach to environmental and social well-being.
+layout: base.njk
+---
+
+<div class="px-40 flex flex-1 justify-center py-5">
+    <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+        <div class="@container hero">
+            <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat gap-6 rounded-xl overflow-hidden @[480px]:gap-8 items-center justify-center p-4" style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("{{'/static/background.webp' | url }}");'>
+                <div class="flex flex-col gap-2 text-center">
+                    <h1>Digital Library of Integral Ecology Knowledge Graph</h1>
+                    <h2>Tutorials on building the Digitial Library of Integral Ecology Knowledge Graph</h2>
+                </div>
+                <a href="#tutorials">
+                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#b7e0d2] text-[#131615] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-[#a3c9b8] transition-colors duration-300 shadow-md">
+                        <span class="truncate">Explore Tutorials</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Building a Knowledge Graph for Integral Ecology</h2>
+
+        <p>
+            Welcome to the <strong>Digital Library of Integral Ecology</strong> — a collaborative, open-source project exploring how we can use natural language processing (NLP), ecological knowledge, and graph databases to build better tools for environmental research and action.
+        </p>
+
+        <p>
+            This tutorial series walks through how we are building a multilingual, entity-aware, citation-rich <strong>knowledge graph</strong> from ecological reports and academic literature.
+        </p>
+
+        <p>
+            Whether you're a researcher, librarian, activist, or simply curious, these guides will help you understand and contribute to our work — <strong>no technical background required!</strong>
+        </p>
+
+        <hr>
+
+        <h2>Tutorial Series</h2>
+        <p>
+            Here's what we'll explore together:
+        </p>
+
+        {% include 'posts.njk' %}
+
+        <hr>
+
+        <h2>Getting Started</h2>
+        <p>
+            All code is open-source and Dockerized:
+        </p>
+
+        {% highlight "bash" %}
+git clone https://github.com/clirdlf/dlie_knowledge_graph.git
+cd dlie_knowledge_graph
+make build
+make pipeline PDF=your_report.pdf
+{% endhighlight %}
+
+        <p>
+            You'll extract entities, visualize the graph, and export data for annotation — in just a few steps.
+        </p>
+
+        <hr>
+
+        <h2>🤝 Get Involved</h2>
+
+        <ul>
+            <li>Contribute reports or documents</li>
+            <li>Help annotate and improve the language models</li>
+            <li>Add support for your language or region</li>
+            <li>Improve the pipeline or add visualizations</li>
+        </ul>
+
+    </div>
+</div>

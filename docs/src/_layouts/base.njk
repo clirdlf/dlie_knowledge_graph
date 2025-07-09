@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" />
+    <meta name="description" content="{{ slug or description or meta.description }}">
+    <title>{{ title or meta.title }}</title>
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/site.css">
+    {%- include 'seo.njk' -%}
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+</head>
+<body class="bg-white dark:bg-[#151e1b] text-[#131615] dark:text-[#f1f3f3]" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <a class="sr-only" href="#main">Skip to content</a>
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="flex flex-col h-screen">
+                {% include "navigation.njk" %}
+                <main id="main" class="flex-grow">
+                    {{ content | safe }}
+                </main>
+                {% include "footer.njk" %}
+            </div>
+            <script src="/assets/js/main.js"></script>
+        </div>
+    </div>
+</body>
+</html>

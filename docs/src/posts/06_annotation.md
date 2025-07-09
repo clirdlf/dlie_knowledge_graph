@@ -1,6 +1,7 @@
 ---
 title: "Annotation: Teaching the System to Be Smarter"
 slug:    A look at Doccano and how humans refine machine learning.
+date: 2025-06-06
 layout: post
 ---
 
@@ -74,13 +75,13 @@ If you’re running the project with Docker Compose, Doccano is already availabl
 
 Log in with
 
-* **Username:** admin
-* **Password:** admin
+* **Username:** `admin`
+* **Password:** `password`
 
 From there, you can 
 
 1. Create a new NER project
-2. Import your .jsonl file (generated in previous step)
+2. Import your `.jsonl` file (generated in previous step)
 3. Start tagging!
 
 ---

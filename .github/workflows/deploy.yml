@@ -1,67 +1,39 @@
-name: Build and Deploy Jekyll Site with Tailwind
+name: Deploy Eleventy Docs to GitHub Pages
 
 on:
   push:
-    branches: [main]  # or your default branch
+    branches:
+      - main
 
 permissions:
-  contents: write  # needed for gh-pages deployment
+  contents: write  # Required to push to gh-pages
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+
+    defaults:
+      run:
+        working-directory: docs  # Your 11ty source lives here
+
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
 
-      # Set up Ruby (for Jekyll + plugins)
-      - uses: ruby/setup-ruby@v1
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          ruby-version: 3.4.4
-          bundler-cache: true
+          node-version: '24'
 
-      # Set up Node (for Tailwind + PostCSS)
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-        #   cache: 'npm'
+      - name: 📦 Install dependencies
+        run: npm ci
 
-      # Install dependencies
-      - name: Install dependencies
-        working-directory: ./docs
-        run: |
-          npm install
-          bundle install
+      - name: 🏗️ Build site
+        run: npm run build
 
-      # Build the site (Jekyll + Tailwind via jekyll-postcss)
-      - name: Build Jekyll site
-        working-directory: ./docs
-        run: |
-          JEKYLL_ENV=production bundle exec jekyll build
-
-      - name: Log compiled Tailwind CSS
-        run: |
-            echo "Compiled CSS preview:"
-            cat ./docs/_site/assets/css/main.css | head -n 40 | tee /dev/stdout
-
-      - name: Print first tailwind class
-        run: |
-            grep -m 1 "\.text-" ./docs/_site/assets/css/main.css || echo "No Tailwind classes found"
-
-      - name: List deployed files
-        run: find ./docs/_site -type f
-
-      - name: Compile Tailwind CSS manually
-        working-directory: ./docs
-        run: |
-            postcss assets/css/tailwind.css -o assets/css/main.css
-
-      # Deploy to GitHub Pages
-      - name: Deploy
+      - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_site
+          publish_dir: docs/_site
+          publish_branch: gh-pages

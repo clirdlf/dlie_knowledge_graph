@@ -1,0 +1,24 @@
+{# Open Graph (Facebook, LinkedIn) #}
+<meta property="og:title" content="{{ title or site.title }}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ url or page.url | absoluteUrl }}">
+<meta property="og:image" content="{{ image or '/static/default-og-image.png' }}">
+
+{# Twitter Card #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ image or '/static/default-og-image.png' }}">
+
+<link rel="canonical" href="{{ site.base | addPathPrefixToFullUrl }}">
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "{{ title }}",
+        "description": "{{ description }}",
+        "url": "{{ url or page.url | absoluteUrl }}"
+    }
+</script>

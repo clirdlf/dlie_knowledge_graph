@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+
+<div class="blog-post">
+    <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+
+        <div class="flex flex-wrap justify-between gap-3 p-4">
+            <div class="blog-header flex min-w-72 flex-col gap-3">
+                <h1>{{ title }}</h1>
+                <p>{{ slug }}</p>
+            </div>
+        </div>
+
+        {{ content | safe }}
+
+        {% include 'post-navigation.njk' %}
+    </div>
+</div>
+

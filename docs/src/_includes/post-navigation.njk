@@ -1,0 +1,29 @@
+{%- set previousPost = collections.posts | getPreviousCollectionItem(page) -%}
+{%- set nextPost = collections.posts | getNextCollectionItem(page) -%}
+
+<div class="post-navigation">
+    {% if previousPost %}
+        <!-- Previous Post -->
+        <a href="{{ previousPost.url }}" class="flex items-center space-x-3 group max-w-xs">
+            <div class="text-2xl text-gray-400 text-dark: group-hover:text-gray-600 transition">&larr;</div>
+            <div>
+                <p class="text-sm text-gray-500 dark:text-white">Previous Post</p>
+                <p class="text-base font-medium text-gray-900 dark:text-[#b7e0d2] group-hover:underline">{{ previousPost.data.title }}</p>
+            </div>
+        </a>
+    {% endif %}
+
+    <!-- Spacer for small screens -->
+    <div class="flex-1"></div>
+
+    <!-- Next Post -->
+    {% if nextPost %}
+        <a href="{{ nextPost.url }}" class="flex items-center space-x-3 group max-w-xs text-right">
+            <div>
+                <p class="text-sm text-gray-500 dark:text-white">Next Post</p>
+                <p class="text-base font-medium text-gray-900 dark:text-[#b7e0d2] group-hover:underline">{{ nextPost.data.title }}</p>
+            </div>
+            <div class="text-2xl text-gray-400 group-hover:text-gray-600 transition">&rarr;</div>
+        </a>
+    {% endif %}
+</div>
