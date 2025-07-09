@@ -126,7 +126,7 @@ This will spin up:
 Then, you can run the full pipeline like this:
 
 ```bash
-make pipeline PDF=/data/input/202206_IPBES_GLOBALREPORT.pdf
+make pipeline PDF=/data/input/sample1.pdf
 ```
 
 You’ll find the results in the `data/output/` and `data/doccano/` folders.
