@@ -1,7 +1,7 @@
 ---
 title: "Contribute: Join the Digital Library of Integral Ecology"
 slug:    How you can help build and grow this open knowledge commons.
-date: 2025-06-09
+date: 2025-06-10
 layout: post
 ---
 
